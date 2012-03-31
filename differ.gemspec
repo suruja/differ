@@ -16,11 +16,9 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "Gemfile",
-    "Gemfile.lock",
     "README.rdoc",
     "Rakefile",
     "VERSION.yml",
-    "differ.gemspec",
     "lib/differ.rb",
     "lib/differ/change.rb",
     "lib/differ/diff.rb",
@@ -47,12 +45,9 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rspec-rails>, ["~> 1.3"])
     else
-      s.add_dependency(%q<rspec-rails>, ["~> 1.3"])
     end
   else
-    s.add_dependency(%q<rspec-rails>, ["~> 1.3"])
   end
 end
 
