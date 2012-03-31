@@ -68,8 +68,11 @@ module Differ
     end
 
     def to_s
-      # format_as :passage
       @raw.join
+    end
+
+    def to_passages
+      format_as :passage
     end
 
     def format_as(f)
