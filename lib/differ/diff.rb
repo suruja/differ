@@ -68,17 +68,32 @@ module Differ
     end
 
     def to_s
-      @raw.join()
+      format_as :passage
     end
 
     def format_as(f)
-      f = Differ.format_for(f)
-      @raw.inject('') do |sum, part|
-        part = case part
-        when String then part
-        when Change then f.format(part)
+      if f == :passage
+        f = Differ.format_for(f)
+        @raw.inject([[], 0]) do |(changes, length), part|
+          case part
+          when String
+            length += part.length
+          when Change
+            p = f.format(part, length)
+            length += p.length
+            changes << p
+          end
+          [changes, length]
+        end.first
+      else
+        f = Differ.format_for(f)
+        @raw.inject('') do |sum, part|
+          part = case part
+                 when String then part
+                 when Change then f.format(part)
+                 end
+          sum << part
         end
-        sum << part
       end
     end
 

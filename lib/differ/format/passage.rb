@@ -2,25 +2,23 @@ module Differ
   module Format
     module Passage
       class << self
-        def format(change)
-          binding.pry
-          (change.change? && as_change(change)) ||
-          (change.delete? && as_delete(change)) ||
-          (change.insert? && as_insert(change)) ||
-          ''
+        def format(change, length)
+          (change.change? && as_change(change, length)) ||
+          (change.delete? && as_delete(change, length)) ||
+          (change.insert? && as_insert(change, length))
         end
 
       private
-        def as_insert(change)
-          "{+#{change.insert.inspect}}"
+        def as_insert(change, length)
+          { :method => :insert, :content => change.insert, :at => length }
         end
 
-        def as_delete(change)
-          "{-#{change.delete.inspect}}"
+        def as_delete(change, length)
+          { :method => :delete, :content => change.delete, :from => length, :to => length + change.delete.length }
         end
 
-        def as_change(change)
-          "{#{change.delete.inspect} >> #{change.insert.inspect}}"
+        def as_change(change, length)
+          { :method => :change, :content => change.insert, :from => length, :to => length + change.delete.length }
         end
       end
     end

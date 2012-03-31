@@ -51,7 +51,7 @@ module Differ
       when :color     then Format::Color
       when :html      then Format::HTML
       when :passage   then Format::Passage
-      when nil    then nil
+      when nil        then nil
       else raise "Unknown format type #{f.inspect}"
       end
     end
