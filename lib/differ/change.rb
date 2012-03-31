@@ -19,7 +19,7 @@ module Differ
     end
 
     def to_s
-      Differ.format.to_s
+      Differ.format.format(self)
     end
     alias :inspect :to_s
 

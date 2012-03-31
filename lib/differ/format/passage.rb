@@ -2,7 +2,7 @@ module Differ
   module Format
     module Passage
       class << self
-        def format(change, length)
+        def format(change, length = 0)
           (change.change? && as_change(change, length)) ||
           (change.delete? && as_delete(change, length)) ||
           (change.insert? && as_insert(change, length))

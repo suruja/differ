@@ -9,8 +9,8 @@ describe Differ do
       Differ.format.should == Differ::Format::HTML
     end
 
-    it 'should default to Differ::Format::Passage' do
-      Differ.format.should == Differ::Format::Passage
+    it 'should default to Differ::Format::Ascii' do
+      Differ.format.should == Differ::Format::Ascii
     end
   end
 
