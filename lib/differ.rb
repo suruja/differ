@@ -3,6 +3,7 @@ require 'differ/diff'
 require 'differ/format/ascii'
 require 'differ/format/color'
 require 'differ/format/html'
+require 'differ/format/passage'
 
 module Differ
   class << self
@@ -40,15 +41,16 @@ module Differ
     end
 
     def format
-      return @format || Format::Ascii
+      return @format || Format::Passage
     end
 
     def format_for(f)
       case f
-      when Module then f
-      when :ascii then Format::Ascii
-      when :color then Format::Color
-      when :html  then Format::HTML
+      when Module     then f
+      when :ascii     then Format::Ascii
+      when :color     then Format::Color
+      when :html      then Format::HTML
+      when :passage   then Format::Passage
       when nil    then nil
       else raise "Unknown format type #{f.inspect}"
       end
