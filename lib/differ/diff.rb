@@ -84,7 +84,7 @@ module Differ
             length += part.length
           when Change
             p = f.format(part, length)
-            length += p.length
+            length += part.delete.length
             changes << p
           end
           [changes, length]

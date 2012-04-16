@@ -14,11 +14,11 @@ module Differ
         end
 
         def as_delete(change, length)
-          { :method => :delete, :content => change.delete, :from => length, :to => length + change.delete.length }
+          { :method => :delete, :content => change.delete, :from => length, :to => length + change.delete.length - 1 }
         end
 
         def as_change(change, length)
-          { :method => :change, :content => change.insert, :from => length, :to => length + change.delete.length }
+          { :method => :change, :content => change.insert, :from => length, :to => length + change.delete.length - 1 }
         end
       end
     end

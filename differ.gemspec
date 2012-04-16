@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "differ"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pieter van de Bruggen"]
-  s.date = "2012-03-31"
+  s.date = "2012-04-16"
   s.email = "pvande@gmail.com"
   s.extra_rdoc_files = [
     "README.rdoc"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION.yml",
+    "differ.gemspec",
     "lib/differ.rb",
     "lib/differ/change.rb",
     "lib/differ/diff.rb",
